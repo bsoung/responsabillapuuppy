@@ -1,10 +1,26 @@
+.html {
+	font-family: Arial, sans-serif;
+}
+
+
 .interface-box {
 	border: 1px solid black;
 	float: right;
 	padding: 20px;
+	border-radius: 15px;
 }
 
 .info-box {
 	border: 1px solid black;
 	float: left;
+}
+
+button {
+	height: 90px;
+	width: 200px;
+	background-color: white;
+	font-size: 14px;
+	border-radius: 16px;
+	border: 2px solid black;
+	font-weight: bold;
 }

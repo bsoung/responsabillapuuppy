@@ -4,13 +4,14 @@ const FeedThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'red'}} 
+			style={{color: '#303F9F'}} 
+			//
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickFeed()
 			}}
 		>
-			feed Mertle flies!
+			feed Mertle flies! <img src="../assets/fly.png" />
 		</button>
 	</div>
 )

@@ -10,7 +10,7 @@ const WaterThing = (props) => (
 				props.onClickWater()
 			}}
 		>
-			water Mertle
+			water Mertle <img src="../assets/raindrop.png" />
 		</button>
 	</div>
 )

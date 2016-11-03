@@ -10,7 +10,7 @@ const SlapThing = (props) => (
 				props.onClickSlap()
 			}}
 		>
-			slap Mertle!
+			slap Mertle! <img src="../assets/slap.png" />
 		</button>
 	</div>
 )
