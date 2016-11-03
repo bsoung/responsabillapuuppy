@@ -34,13 +34,15 @@ const GameContainer = React.createClass({
 
     	if (this.state.event === "Your parents don't like your attitude!") {
     		this.setState({
-    			maxDays: this.state.maxDays + 1
+    			maxDays: this.state.maxDays + 1,
+    			image: 'angry_parents.png'
     		})
     	}
 
     	if (this.state.event === "One of the flies escapes and flies in your mouth!!!") {
     		this.setState({
-    			morale: this.state.morale - 10
+    			morale: this.state.morale - 10,
+    			image: 'fly_in_mouth.png'
     		})
     	}
 
@@ -94,6 +96,7 @@ const GameContainer = React.createClass({
 			points: this.state.points + 2
 		})
 		this.endDay(events)
+
 
 	},
 
