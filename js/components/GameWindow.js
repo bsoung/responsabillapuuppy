@@ -3,6 +3,7 @@ import FeedThing from './FeedThing';
 import WaterThing from './WaterThing'
 import SkipThing from './SkipThing'
 import SlapThing from './SlapThing'
+import Reset from './Reset'
 
 
 const GameWindow = (props) => (
@@ -20,7 +21,7 @@ const GameWindow = (props) => (
 			<h2>health: {props.hp}</h2>
 		</div>
 	
-		{props.days > props.maxDays ? <button>Restart!</button> : 
+		{props.days > props.maxDays ? <Reset onClickReset={props.onClickReset} /> : 
 		<div>
 			<FeedThing onClickFeed={props.onClickFeed} />
 			<WaterThing onClickWater={props.onClickWater} />

@@ -69,6 +69,19 @@ const GameContainer = React.createClass({
 
 	},
 
+	onClickReset () {
+		this.setState({
+			event: '',
+			image: 'default.png',
+			points: 0,
+			days: 0,
+			maxDays: 30,
+			hp: 100,
+			morale: 100
+		})
+	},
+
+
 	onClickFeed () {
 		const events = [
 			"One of the flies escapes and flies in your mouth!!!",
@@ -136,6 +149,7 @@ const GameContainer = React.createClass({
 						onClickWater={this.onClickWater}
 						onClickSkip={this.onClickSkip}
 						onClickSlap={this.onClickSlap}
+						onClickReset={this.onClickReset}
 						/>
 			<GameImage image={this.state.image} event={this.state.event} />
 			</div>
