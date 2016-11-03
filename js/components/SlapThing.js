@@ -1,21 +1,19 @@
 import React from 'react';
 
-const FeedThing = (props) => (
+const SlapThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
 			style={{color: 'red'}} 
 			onClick={(e) => {
 				e.preventDefault()
-				props.onClickFeed()
+				props.onClickSlap()
 			}}
 		>
-			feed Mertle flies!
+			slap Mertle!
 		</button>
 	</div>
 )
 
 
-module.exports = FeedThing;
-
-
+module.exports = SlapThing;

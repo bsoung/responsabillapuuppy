@@ -1,21 +1,19 @@
 import React from 'react';
 
-const FeedThing = (props) => (
+const WaterThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'red'}} 
+			style={{color: 'blue'}} 
 			onClick={(e) => {
 				e.preventDefault()
-				props.onClickFeed()
+				props.onClickWater()
 			}}
 		>
-			feed Mertle flies!
+			water Mertle
 		</button>
 	</div>
 )
 
 
-module.exports = FeedThing;
-
-
+module.exports = WaterThing;

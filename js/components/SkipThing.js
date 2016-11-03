@@ -1,21 +1,19 @@
 import React from 'react';
 
-const FeedThing = (props) => (
+const SkipThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'red'}} 
+			style={{color: 'purple'}} 
 			onClick={(e) => {
 				e.preventDefault()
-				props.onClickFeed()
+				props.onClickSkip()
 			}}
 		>
-			feed Mertle flies!
+			skip it - we're too scared!
 		</button>
 	</div>
 )
 
 
-module.exports = FeedThing;
-
-
+module.exports = SkipThing;
