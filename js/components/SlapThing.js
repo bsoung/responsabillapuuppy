@@ -18,4 +18,4 @@ const SlapThing = (props) => (
 )
 
 
-module.exports = SlapThing;
+export default SlapThing;

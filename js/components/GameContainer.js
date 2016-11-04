@@ -56,14 +56,14 @@ const GameContainer = React.createClass({
 
     		/* WATER RANDOM EVENTS */
 
-    		if (event_ == "You gleefully drink the water instead, regaining some health!"){
+    		if (event_ == "Mertle is in a bad mood today, and does not accept any water."){
 				payload['event'] = event_;
 				payload['image'] = randomEvent.image;
 				payload['hp'] = this.state.hp + 15
 
     		}
 
-    		if (event_ == "Mertle spits out the water in disgust"){
+    		if (event_ == "Mertle spits out the water in disgust!"){
 				payload['event'] = event_;
 				payload['image'] = randomEvent.image;
 				payload['morale'] = this.state.morale - 10
@@ -78,10 +78,6 @@ const GameContainer = React.createClass({
 				payload['hp'] = this.state.hp - 15
 
     		}
-
-
-    		/* */
-
 
     		this.setState(payload);
     		
@@ -150,7 +146,7 @@ const GameContainer = React.createClass({
 
 	onClickWater () {
 		const events = [
-			{display: "Mertle is in a bad mood today, and does not accept any water.", image: 'rage_face.jpeg'},
+			{display: "Mertle is in a bad mood today, and does not accept any water.", image: 'rage_face.jpg'},
 			{display: "Mertle spits out the water in disgust!", image: 'spit_out.png'},
 			{display: "Mertle knocks you out and steals your pocket money.", image: 'bully_trap.jpeg'},
 
