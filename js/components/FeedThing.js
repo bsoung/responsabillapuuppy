@@ -2,10 +2,9 @@ import React from 'react';
 
 const FeedThing = (props) => (
 	// just an element on the page
-	<div>
+	<div className="btn">
 		<button 
-			className="hvr-shrink"
-			//
+			className="hvr-shrink btn"
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickFeed()

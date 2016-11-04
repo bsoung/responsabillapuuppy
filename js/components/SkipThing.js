@@ -2,7 +2,7 @@ import React from 'react';
 
 const SkipThing = (props) => (
 	// just an element on the page
-	<div>
+	<div className="btn">
 		<button 
 			className="hvr-shrink"
 			style={{color: '#303F9F'}} 

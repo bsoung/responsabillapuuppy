@@ -2,9 +2,9 @@ import React from 'react';
 
 const SlapThing = (props) => (
 	// just an element on the page
-	<div>
+	<div className="btn">
 		<button 
-			className="hvr-shrink"
+			className="hvr-shrink btn"
 			style={{color: '#FF5722'}} 
 			onClick={(e) => {
 				e.preventDefault()
