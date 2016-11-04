@@ -4,7 +4,7 @@ const WaterThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'blue'}} 
+			style={{color: '#303F9F'}} 
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickWater()

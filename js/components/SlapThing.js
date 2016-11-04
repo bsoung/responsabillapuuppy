@@ -4,7 +4,7 @@ const SlapThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'red'}} 
+			style={{color: '#FF5722'}} 
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickSlap()

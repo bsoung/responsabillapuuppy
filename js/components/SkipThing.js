@@ -4,7 +4,7 @@ const SkipThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: 'purple'}} 
+			style={{color: '#303F9F'}} 
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickSkip()

@@ -4,7 +4,7 @@ const FeedThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: '#303F9F'}} 
+			style={{color: '#FF5722'}} 
 			//
 			onClick={(e) => {
 				e.preventDefault()
