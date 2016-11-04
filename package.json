@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cd build; python -m SimpleHTTPServer 8080",
     "dev": "run-p watch serve",
-    "test": "mocha --recursive --compilers js:babel-core/register",
+    "test": "mocha -R nyan --recursive --compilers js:babel-core/register",
     "build": "run-s build:*",
     "clean": "rimraf build",
     "serve": "npm start",

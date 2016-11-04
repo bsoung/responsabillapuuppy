@@ -4,6 +4,7 @@ const Reset = (props) => (
 	// just an element on the page
 	<div>
 		<button 
+			className="hvr-shrink btn"
 			style={{color: 'orange'}} 
 			onClick={(e) => {
 				e.preventDefault()
