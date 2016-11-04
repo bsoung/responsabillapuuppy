@@ -1,21 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+.master-window {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+
 .html {
 	font-family: Arial, sans-serif;
 }
 
+.image-box {
+	padding-bottom: 42px;
+}
+
 
 .interface-box {
-	border: 1px solid black;
+	height: 610px;
+	border: 3px solid black;
 	float: right;
 	padding: 20px;
 	border-radius: 15px;
 }
 
 .info-box {
-	border: 1px solid black;
+	width: 450px;
+	height: 50px;
+	padding-left: 20px;
+	border: 3px solid black;
+	border-radius: 15px;
 	float: left;
 }
 
+.status-box {
+	width: 450px;
+	height: 50px;
+	padding-left: 20px;
+	border-radius: 15px;
+	float: left;
+	border: 3px solid black;
+}
+
+img, span {
+    vertical-align:middle;
+}
+
 button {
+	outline:0 !important;
+	padding-bottom: 10px;
+	padding: 1em 2em;
 	height: 90px;
 	width: 200px;
 	background-color: white;

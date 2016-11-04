@@ -3,12 +3,15 @@ import React from 'react'
 const GameImage = (props) => (
 	<div>
 		<div className='info-box'>
-			<h1>{props.event}</h1>
+			<p>{props.event}</p>
 		</div>
-		<div>
+		<div className='image-box'>
 			<img src={`../assets/${props.image}`} />
+		</div>
+		<div className="status-box">
+			<p>{props.status}</p>
 		</div>
 	</div>
 )
 
-module.exports = GameImage
+export default GameImage

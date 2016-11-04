@@ -9,19 +9,19 @@ import Reset from './Reset'
 const GameWindow = (props) => (
 	<div className="interface-box">
 		<div>
-			<h2>days {props.days} / {props.maxDays}</h2>
+			<h2 style={{color: 'purple'}} >days: {props.days} / {props.maxDays}</h2>
 		</div>
 		<div>
-			<h2>points: {props.points}</h2>
+			<h2 style={{color: 'teal'}} >points: {props.points}</h2>
 		</div>
 		<div>
-			<h2>morale: {props.morale}</h2>
+			<h2 style={{color: 'blue'}} >morale: {props.morale}</h2>
 		</div>
 		<div>
-			<h2>health: {props.hp}</h2>
+			<h2 style={{color: 'green'}} >health: {props.hp}</h2>
 		</div>
 	
-		{props.days > props.maxDays ? <Reset onClickReset={props.onClickReset} /> : 
+		{props.days > props.maxDays || props.hp <= 0 ? <Reset onClickReset={props.onClickReset} /> : 
 		<div>
 			<FeedThing onClickFeed={props.onClickFeed} />
 			<WaterThing onClickWater={props.onClickWater} />
@@ -34,4 +34,4 @@ const GameWindow = (props) => (
 )
 
 
-module.exports = GameWindow;
+export default GameWindow;

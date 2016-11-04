@@ -6,6 +6,8 @@ import GameImage from './GameImage'
 const GameContainer = React.createClass({
 	getInitialState () {
 		return {
+			mirtleAnger: 0,
+			status: 'Mirtle seems to be fairly tame at the moment',
 			event: '',
 			image: 'default.png',
 			points: 0,
@@ -22,40 +24,81 @@ const GameContainer = React.createClass({
     	let coinToss = Math.random()
 
     	if (coinToss > 0.5) {
-    		this.setState({
-    			event: randomEvent
-    		})
+
+    		let event_ = randomEvent.display;
+    		let payload = {days: this.state.days + 1};
+
+    		/* FEEDING RANDOM EVENTS */
+
+    		if (event_ == "One of the flies escapes and charges into your mouth!"){
+    			payload['event'] = event_;
+    			payload['image'] = randomEvent.image;
+    			payload['morale'] = this.state.morale - 10
+    			payload['hp'] = this.state.hp - 10
+    			
+    		}
+
+    		if (event_ == "Mertle spits in your face with enormous force!"){
+    			payload['event'] = event_;
+    			payload['image'] = randomEvent.image;
+    			payload['morale'] = this.state.morale - 15
+    			payload['hp'] = this.state.hp - 25
+    			
+    		}
+
+    		if (event_ == "Mertle snaps at your fingers, saliva drooling from its mouth."){
+    			payload['event'] = event_;
+    			payload['image'] = randomEvent.image;
+    			payload['morale'] = this.state.morale - 5
+    			payload['hp'] = this.state.hp - 15
+    		
+    		}
+
+    		/* WATER RANDOM EVENTS */
+
+    		if (event_ == "You gleefully drink the water instead, regaining some health!"){
+				payload['event'] = event_;
+				payload['image'] = randomEvent.image;
+				payload['hp'] = this.state.hp + 15
+
+    		}
+
+    		if (event_ == "Mertle spits out the water in disgust"){
+				payload['event'] = event_;
+				payload['image'] = randomEvent.image;
+				payload['morale'] = this.state.morale - 10
+				payload['hp'] = this.state.hp - 5
+
+    		}
+
+    		if (event_ == "Mertle knocks you out and steals your pocket money."){
+				payload['event'] = event_;
+				payload['image'] = randomEvent.image;
+				payload['morale'] = this.state.morale - 15
+				payload['hp'] = this.state.hp - 15
+
+    		}
+
+
+    		/* */
+
+
+    		this.setState(payload);
     		
     	} else {
     		this.setState({
-    			event: ''
+    			days: this.state.days + 1
     		})
     	}
 
-    	if (this.state.event === "Your parents don't like your attitude!") {
+    	if (this.state.morale <= 0) {
     		this.setState({
-    			maxDays: this.state.maxDays + 1,
-    			image: 'angry_parents.png'
+    			maxDays: this.state.maxDays + 10,
+    			points: this.state.points - 20,
+    			morale: 50
     		})
     	}
-
-    	if (this.state.event === "One of the flies escapes and flies in your mouth!!!") {
-    		this.setState({
-    			morale: this.state.morale - 10,
-    			image: 'fly_in_mouth.png'
-    		})
-    	}
-
-    	if (this.state.event === "Mertle spits in your face") {
-    		this.setState({
-    			morale: this.state.morale - 25,
-    			hp: this.state.hp - 10
-    		})
-    	}
-
-    	this.setState({
-			days: this.state.days + 1
-		})
+    	
 
 		if (this.state.days == this.state.maxDays && this.state.points >= this.state.maxDays) {
 			this.setState({
@@ -83,17 +126,20 @@ const GameContainer = React.createClass({
 		})
 	},
 
-
 	onClickFeed () {
 		const events = [
-			"One of the flies escapes and flies in your mouth!!!",
-			"Mertle snaps at your fingers!",
-			"Mertle spits in your face"
+			{display: "One of the flies escapes and charges into your mouth!", image: 'fly_in_mouth.png'},
+			{display: "Mertle spits in your face with enormous force!", image: 'trap_attack.jpeg'},
+			{display: "Mertle snaps at your fingers, saliva drooling from its mouth.", image: 'biting_hand.jpeg'}
+			
 		]
 
 		this.setState({
 			image: 'feed_mertle.png',
-			points: this.state.points + 2
+			points: this.state.points + 2,
+			morale: this.state.morale + 3,
+			hp: this.state.hp + 3,
+			event: 'You manage to throw a fly into mertle\'s mouth.'
 		})
 		this.endDay(events)
 
@@ -102,15 +148,18 @@ const GameContainer = React.createClass({
 
 	onClickWater () {
 		const events = [
-			"One of the flies escapes and flies in your mouth!!!",
-			"Mertle snaps at your fingers!",
-			"Mertle spits in your face"
+			{display: "Mertle is in a bad mood today, and does not accept any water.", image: 'rage_face.jpeg'},
+			{display: "Mertle spits out the water in disgust!", image: 'spit_out.png'},
+			{display: "Mertle knocks you out and steals your pocket money.", image: 'bully_trap.jpeg'},
 
 		]
 
 		this.setState({
 			image: 'water_mertle.png',
-			points: this.state.points + 1
+			points: this.state.points + 1,
+			morale: this.state.morale + 2,
+			hp: this.state.hp + 2,
+			event: 'You skillfully water mirtle!'
 
 		})
 		this.endDay(events)
@@ -118,12 +167,14 @@ const GameContainer = React.createClass({
 
 	onClickSkip () {
 		const events = [
-    		"Your parents don't like your attitude!"
+    		{display: "Your parents don't like your attitude.", image: 'angry_parents.png'},
     	]
 
 		this.setState({
-			image: 'default.png',
-			hp: this.state.hp + 10
+			image: 'angry_parents.png',
+			hp: this.state.hp + 30,
+			maxDays: this.state.maxDays + 1,
+			event: "Your parents don't like your attitude."
 			
 		})
 		this.endDay(events)
@@ -134,31 +185,35 @@ const GameContainer = React.createClass({
 
 		this.setState({
 			image: 'smack_mertle.png',
-			morale: this.state.morale + 20,
-			points: this.state.points - 1
+			morale: this.state.morale + 15,
+			points: this.state.points - 1,
+			event: "You smack mirtle silly! You gain morale!"
 		})
 		this.endDay(events)
 	},
 
 	render () {
+		{this.state.points >= 0 ? this.state.points = this.state.points : this.state.points = 0}
+		{this.state.hp <= 100 ? this.state.hp = this.state.hp : this.state.hp = 100}
+		{this.state.morale <= 100 ? this.state.morale = this.state.morale : this.state.morale = 100}
 		return (
-			<div>
-			<GameWindow days={this.state.days} 
-						maxDays={this.state.maxDays}
-						hp={this.state.hp}
-						morale={this.state.morale}
-						points={this.state.points} 
-						onClickFeed={this.onClickFeed} 
-						onClickWater={this.onClickWater}
-						onClickSkip={this.onClickSkip}
-						onClickSlap={this.onClickSlap}
-						onClickReset={this.onClickReset}
-						/>
-			<GameImage image={this.state.image} event={this.state.event} />
+			<div className='master-window'>
+				<GameWindow days={this.state.days} 
+							maxDays={this.state.maxDays}
+							hp={this.state.hp}
+							morale={this.state.morale}
+							points={this.state.points} 
+							onClickFeed={this.onClickFeed} 
+							onClickWater={this.onClickWater}
+							onClickSkip={this.onClickSkip}
+							onClickSlap={this.onClickSlap}
+							onClickReset={this.onClickReset}
+							/>
+				<GameImage image={this.state.image} event={this.state.event} status={this.state.status} />
 			</div>
 		)
 	}
 
 })
 
-module.exports = GameContainer;
+export default GameContainer;

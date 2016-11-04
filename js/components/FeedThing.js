@@ -4,19 +4,20 @@ const FeedThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
-			style={{color: '#FF5722'}} 
+			className="hvr-shrink"
 			//
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickFeed()
 			}}
-		>
+		><span>
 			feed Mertle flies! <img src="../assets/fly.png" />
+		 </span>
 		</button>
 	</div>
 )
 
 
-module.exports = FeedThing;
+export default FeedThing;
 
 

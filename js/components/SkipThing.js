@@ -4,16 +4,18 @@ const SkipThing = (props) => (
 	// just an element on the page
 	<div>
 		<button 
+			className="hvr-shrink"
 			style={{color: '#303F9F'}} 
 			onClick={(e) => {
 				e.preventDefault()
 				props.onClickSkip()
 			}}
-		>
+		><span>
 			skip it - we're too scared!
+		 </span>
 		</button>
 	</div>
 )
 
 
-module.exports = SkipThing;
+export default SkipThing;
