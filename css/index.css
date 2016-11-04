@@ -6,9 +6,11 @@ p {
 }
 
 .master-window {
+	flex-wrap: wrap;
+	width: 100%;
 	display: flex;
 	flex-direction: row-reverse;
-	align-items: stretch;
+	align-items: center;
 	justify-content: space-around;
 }
 
@@ -18,11 +20,13 @@ p {
 }
 
 .image-box {
+
 	padding-bottom: 42px;
 }
 
 
 .interface-box {
+
 	height: 610px;
 	border: 3px solid black;
 	float: right;
@@ -31,6 +35,7 @@ p {
 }
 
 .info-box {
+
 	width: 450px;
 	height: 50px;
 	padding-left: 20px;
@@ -40,6 +45,7 @@ p {
 }
 
 .status-box {
+
 	width: 450px;
 	height: 50px;
 	padding-left: 20px;
