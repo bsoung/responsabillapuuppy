@@ -94,7 +94,7 @@ const GameContainer = React.createClass({
     	if (this.state.morale <= 0) {
     		this.setState({
     			maxDays: this.state.maxDays + 10,
-    			points: this.state.points - 20,
+    			points: this.state.points - 30,
     			morale: 50
     		})
     	}
@@ -102,13 +102,15 @@ const GameContainer = React.createClass({
 
 		if (this.state.days == this.state.maxDays && this.state.points >= this.state.maxDays) {
 			this.setState({
-				image: 'puppy.png'
+				image: 'puppy.png',
+				event: 'You get a puppy!!!'
 			})
 		} 
 
 		if (this.state.days == this.state.maxDays && this.state.points < this.state.maxDays) {
 			this.setState({
-				image: 'mertle_is_fed.png'
+				image: 'mertle_is_fed.png',
+				event: 'Mertle\'s having a big dinner tonight.'
 			})
 		}
 

@@ -21,7 +21,7 @@ const GameWindow = (props) => (
 			<h2 style={{color: 'green'}} >health: {props.hp}</h2>
 		</div>
 	
-		{props.days > props.maxDays || props.hp <= 0 ? <Reset onClickReset={props.onClickReset} /> : 
+		{props.days > props.maxDays || props.hp <= 0 ? <div style={{paddingTop: "140px"}} ><Reset onClickReset={props.onClickReset} /></div> : 
 		<div className="button-group">
 			<FeedThing onClickFeed={props.onClickFeed} />
 			<WaterThing onClickWater={props.onClickWater} />
