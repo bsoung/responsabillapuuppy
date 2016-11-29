@@ -21,7 +21,6 @@ describe('GameContainer component', () => {
 	it('should render the corect containers', () => {
 		// console.log(result.props.children[0].type);
 
-
 		result.props.children[0].type.name.should.equal('GameWindow')
 		result.props.children[1].type.name.should.equal('GameImage')
 		result.props.children[0].props.days.should.equal(0)
